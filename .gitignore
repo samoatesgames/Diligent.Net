@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# DiligentEngine override - all files in this directory are pre-built
+!DiligentEngine/**
