@@ -105,4 +105,8 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName)==Debug xcopy $(SolutionDir)DiligentEngine\Bin\GraphicsEngineD3D12_64d.dll $(TargetDir) /Y
+if $(ConfigurationName)==Release xcopy $(SolutionDir)DiligentEngine\Bin\GraphicsEngineD3D12_64r.dll $(TargetDir) /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>
