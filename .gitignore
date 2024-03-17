@@ -399,3 +399,4 @@ FodyWeavers.xsd
 
 # DiligentEngine override - all files in this directory are pre-built
 !DiligentEngine/**
+DiligentEngine/Build/**

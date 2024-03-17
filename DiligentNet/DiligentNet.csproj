@@ -106,10 +106,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName)==Debug xcopy $(SolutionDir)DiligentEngine\Bin\GraphicsEngineD3D12_64d.dll $(TargetDir) /Y
-if $(ConfigurationName)==Release xcopy $(SolutionDir)DiligentEngine\Bin\GraphicsEngineD3D12_64r.dll $(TargetDir) /Y
+    <PostBuildEvent>if $(ConfigurationName)==Debug xcopy $(SolutionDir)DiligentEngine\Bin\Dlls\GraphicsEngineD3D12_64d.dll $(TargetDir) /Y
+if $(ConfigurationName)==Release xcopy $(SolutionDir)DiligentEngine\Bin\Dlls\GraphicsEngineD3D12_64r.dll $(TargetDir) /Y
+if $(ConfigurationName)==Debug xcopy $(SolutionDir)DiligentEngine\Bin\Dlls\GraphicsEngineD3D11_64d.dll $(TargetDir) /Y
+if $(ConfigurationName)==Release xcopy $(SolutionDir)DiligentEngine\Bin\Dlls\GraphicsEngineD3D11_64r.dll $(TargetDir) /Y
 
-xcopy $(SolutionDir)DiligentEngine\Assets\DamagedHelmet.gltf $(TargetDir) /Y
-xcopy $(SolutionDir)DiligentEngine\Assets\papermill.ktx $(TargetDir) /Y</PostBuildEvent>
+xcopy $(SolutionDir)DiligentEngine\DiligentSamples\Samples\GLTFViewer\assets\models\DamagedHelmet\DamagedHelmet.gltf $(TargetDir) /Y
+xcopy $(SolutionDir)DiligentEngine\DiligentSamples\Samples\GLTFViewer\assets\textures\papermill.ktx $(TargetDir) /Y</PostBuildEvent>
   </PropertyGroup>
 </Project>

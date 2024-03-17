@@ -22,9 +22,13 @@
 #    define ENGINE_DLL 1
 #endif
 
-#ifndef D3D12_SUPPORTED
-#    define D3D12_SUPPORTED 1
+#ifndef D3D11_SUPPORTED
+#    define D3D11_SUPPORTED 1
 #endif
+
+//#ifndef D3D12_SUPPORTED
+//#    define D3D12_SUPPORTED 1
+//#endif
 
 #include "RenderStateNotation/interface/RenderStateNotationLoader.h"
 #include "AssetLoader/interface/GLTFLoader.hpp"
@@ -37,10 +41,17 @@
 #include "Graphics/GraphicsTools/interface/ShaderSourceFactoryUtils.hpp"
 
 #include <Common/interface/RefCntAutoPtr.hpp>
-#include "Graphics/GraphicsEngineD3D12/interface/EngineFactoryD3D12.h"
 #include "Graphics/GraphicsEngine/interface/RenderDevice.h"
 #include "Graphics/GraphicsEngine/interface/DeviceContext.h"
 #include "Graphics/GraphicsEngine/interface/SwapChain.h"
+
+#ifdef D3D11_SUPPORTED
+#include "Graphics/GraphicsEngineD3D11/interface/EngineFactoryD3D11.h"
+#endif
+
+#ifdef D3D12_SUPPORTED
+#include "Graphics/GraphicsEngineD3D12/interface/EngineFactoryD3D12.h"
+#endif
 
 namespace Diligent
 {
@@ -58,7 +69,6 @@ class DiligentNetNativeImpl
 {
 private:
     SwapChainDesc SCDesc;
-    EngineD3D12CreateInfo EngineCI;
     IRenderDevice* m_pDevice;
     IDeviceContext* m_pImmediateContext;
     ISwapChain* m_pSwapChain;
@@ -173,11 +183,21 @@ void CreateUniformBuffer(IRenderDevice* pDevice,
 
 void DiligentNetNativeImpl::Initialize(void* hWnd)
 {
+#ifdef D3D11_SUPPORTED
+    auto GetEngineFactoryD3D11 = LoadGraphicsEngineD3D11();
+    auto* pFactoryD3D11 = GetEngineFactoryD3D11();
+    EngineD3D11CreateInfo EngineCI;
+    pFactoryD3D11->CreateDeviceAndContextsD3D11(EngineCI, &m_pDevice, &m_pImmediateContext);
+    Win32NativeWindow Window{ (HWND)hWnd };
+    pFactoryD3D11->CreateSwapChainD3D11(m_pDevice, m_pImmediateContext, SCDesc, FullScreenModeDesc{}, Window, &m_pSwapChain);
+#elif defined D3D12_SUPPORTED
     auto GetEngineFactoryD3D12 = LoadGraphicsEngineD3D12();
     auto* pFactoryD3D12 = GetEngineFactoryD3D12();
+    EngineD3D12CreateInfo EngineCI;
     pFactoryD3D12->CreateDeviceAndContextsD3D12(EngineCI, &m_pDevice, &m_pImmediateContext);
     Win32NativeWindow Window{ (HWND)hWnd };
     pFactoryD3D12->CreateSwapChainD3D12(m_pDevice, m_pImmediateContext, SCDesc, FullScreenModeDesc{}, Window, &m_pSwapChain);
+#endif
 
     CreateGLTFRenderer();
     CreateUniformBuffer(m_pDevice, m_GLTFRenderer->GetPRBFrameAttribsSize(), "PBR frame attribs buffer", &m_FrameAttribsCB);

@@ -51,7 +51,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)DiligentEngine\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DiligentEngine\DiligentFX\;$(SolutionDir)DiligentEngine\DiligentCore\;$(SolutionDir)DiligentEngine\DiligentTools\;$(SolutionDir)DiligentEngine\DiligentCore\Graphics\GraphicsEngine\interface\;$(SolutionDir)DiligentEngine\DiligentCore\Common\interface\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -59,7 +59,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentCore.lib;$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentTools.lib;$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentFX.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)DiligentEngine\Bin\Libs\$(Configuration)\DiligentCore.lib;$(SolutionDir)DiligentEngine\Bin\Libs\$(Configuration)\DiligentTools.lib;$(SolutionDir)DiligentEngine\Bin\Libs\$(Configuration)\DiligentFX.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -72,7 +72,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)DiligentEngine\Include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)DiligentEngine\DiligentFX\;$(SolutionDir)DiligentEngine\DiligentCore\;$(SolutionDir)DiligentEngine\DiligentTools\;$(SolutionDir)DiligentEngine\DiligentCore\Graphics\GraphicsEngine\interface\;$(SolutionDir)DiligentEngine\DiligentCore\Common\interface\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>
@@ -82,7 +82,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentCore.lib;$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentTools.lib;$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentFX.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)DiligentEngine\Bin\Libs\$(Configuration)\DiligentCore.lib;$(SolutionDir)DiligentEngine\Bin\Libs\$(Configuration)\DiligentTools.lib;$(SolutionDir)DiligentEngine\Bin\Libs\$(Configuration)\DiligentFX.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
