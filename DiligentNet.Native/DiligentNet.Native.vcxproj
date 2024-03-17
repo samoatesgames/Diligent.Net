@@ -59,7 +59,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentCore.lib;$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentTools.lib;$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentFX.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -82,7 +82,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentCore.lib;$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentTools.lib;$(SolutionDir)DiligentEngine\Libs\$(Configuration)\DiligentFX.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>

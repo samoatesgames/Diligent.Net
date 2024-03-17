@@ -6,7 +6,20 @@
         xmlns:local="clr-namespace:DiligentNet"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Background="Red">
-        <local:DiligentNetViewport Margin="20" />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <local:DiligentNetViewport Grid.Column="0" Margin="20" />
+
+        <GridSplitter Grid.Column="1" Width="4" HorizontalAlignment="Stretch" />
+
+        <TextBlock Text="Hello. I am WPF"
+                   Grid.Column="2"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"/>
     </Grid>
 </Window>
